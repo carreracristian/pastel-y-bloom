@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Pastel & Bloom | Organizadores Aesthetic</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #fffaf7;
+            color: #3a2c2a;
+            scroll-behavior: smooth;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23fce4da" opacity="0.2"><circle cx="12" cy="12" r="3"/><circle cx="4" cy="4" r="2"/><circle cx="20" cy="20" r="2"/></svg>');
+            background-repeat: repeat;
+            background-size: 32px;
+        }
+
+        .header {
+            background: rgba(255, 248, 245, 0.96);
+            backdrop-filter: blur(6px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            border-bottom: 1px solid #ffe0d4;
+        }
+
+        .navbar {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0.8rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            cursor: pointer;
+        }
+
+        .logo-img {
+            width: 55px;
+            height: 55px;
+            object-fit: contain;
+            border-radius: 28px;
+            background: #fff2ec;
+            padding: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .logo-text h1 {
+            font-size: 1.7rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            background: linear-gradient(135deg, #dc8b70, #b55d44);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .logo-text p {
+            font-size: 0.75rem;
+            color: #b28b7c;
+            font-weight: 500;
+        }
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+            background: #fef0ea;
+            padding: 10px 16px;
+            border-radius: 60px;
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+
+        .cart-icon i {
+            font-size: 1.4rem;
+            color: #c27762;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #e9856b;
+            color: white;
+            font-size: 0.7rem;
+            font-weight: bold;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            background: rgba(255, 245, 240, 0.7);
+            border-radius: 0 0 40px 40px;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(2px);
+        }
+
+        .hero h2 {
+            font-size: 1.7rem;
+            font-weight: 500;
+            color: #5a3e36;
+        }
+
+        .hero p {
+            margin-top: 0.5rem;
+            color: #957569;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .location-badge {
+            background: #ffe3d9;
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .catalog {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 1rem 2rem 3rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1.8rem;
+            border-left: 5px solid #e9a28c;
+            padding-left: 1rem;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 28px -12px rgba(0,0,0,0.15);
+        }
+
+        .product-img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            background: #f9ede7;
+        }
+
+        .product-info {
+            padding: 1.2rem;
+        }
+
+        .product-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .product-price {
+            color: #e9856b;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin: 0.5rem 0;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .modal-card {
+            background: white;
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            border-radius: 44px;
+            padding: 1.8rem;
+            position: relative;
+            animation: fadeUp 0.25s ease;
+            overflow-y: auto;
+            box-shadow: 0 30px 40px rgba(0,0,0,0.2);
+            margin: auto;
+        }
+
+        .modal-card::-webkit-scrollbar {
+            width: 5px;
+        }
+        .modal-card::-webkit-scrollbar-track {
+            background: #f7e4dc;
+            border-radius: 10px;
+        }
+        .modal-card::-webkit-scrollbar-thumb {
+            background: #e9a28c;
+            border-radius: 10px;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+
+        .close-modal {
+            position: sticky;
+            top: 0;
+            right: 0;
+            float: right;
+            font-size: 32px;
+            cursor: pointer;
+            color: #b28b7c;
+            background: white;
+            padding: 0 8px;
+            border-radius: 100%;
+            margin-bottom: 10px;
+            z-index: 10;
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            margin-bottom: 1rem;
+            border-radius: 32px;
+            overflow: hidden;
+            background: #f9e3d9;
+        }
+        .carousel-slide {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: #f9ede7;
+        }
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.7);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: #b76e56;
+            transition: 0.2s;
+            backdrop-filter: blur(4px);
+        }
+        .carousel-btn:hover {
+            background: white;
+            color: #e9856b;
+        }
+        .carousel-prev { left: 10px; }
+        .carousel-next { right: 10px; }
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 8px;
+            margin-bottom: 12px;
+        }
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #e9c2b2;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .dot.active {
+            background: #e9856b;
+            width: 20px;
+            border-radius: 10px;
+        }
+
+        .color-selector {
+            margin: 1rem 0;
+        }
+        .color-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #5a3e36;
+            margin-bottom: 0.5rem;
+        }
+        .color-options {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .color-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            opacity: 0.6;
+            transition: 0.2s;
+        }
+        .color-option.active {
+            opacity: 1;
+        }
+        .color-option.disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            filter: grayscale(0.3);
+        }
+        .color-circle {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            transition: 0.1s;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        .color-option.active .color-circle {
+            border-color: #e9856b;
+            transform: scale(1.05);
+            box-shadow: 0 0 0 2px white, 0 0 0 4px #e9856b;
+        }
+        .color-name {
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: #8b6b5e;
+        }
+        .color-option.disabled .color-name {
+            color: #c2a99e;
+        }
+
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 1.2rem 0;
+            background: #fef5f1;
+            padding: 0.5rem;
+            border-radius: 100px;
+            width: fit-content;
+        }
+
+        .qty-btn {
+            background: #f7e4dc;
+            border: none;
+            width: 42px;
+            height: 42px;
+            border-radius: 60px;
+            font-size: 1.4rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .qty-num {
+            font-size: 1.4rem;
+            font-weight: 600;
+            min-width: 45px;
+            text-align: center;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 0.9rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: #e9a28c;
+            border: none;
+            padding: 12px 16px;
+            border-radius: 60px;
+            font-weight: 600;
+            color: white;
+            flex: 1;
+            cursor: pointer;
+            text-align: center;
+        }
+        .btn-primary:hover {
+            background: #dc8b70;
+        }
+        .btn-secondary {
+            background: #f5e1d8;
+            color: #b76e56;
+        }
+
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -450px;
+            width: 100%;
+            max-width: 400px;
+            height: 100vh;
+            background: white;
+            box-shadow: -8px 0 30px rgba(0,0,0,0.1);
+            z-index: 2100;
+            transition: right 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            padding: 1.5rem;
+        }
+
+        .cart-sidebar.open {
+            right: 0;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #ffe0d4;
+        }
+
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            margin: 1rem 0;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid #f7e3db;
+        }
+
+        .cart-item-img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        .cart-total {
+            font-weight: 800;
+            font-size: 1.3rem;
+            border-top: 2px dashed #f0cebf;
+            padding-top: 1rem;
+            margin: 0.5rem 0;
+        }
+
+        .overlay-cart {
+            display: none;
+            position: fixed;
+            top:0;left:0;width:100%;height:100%;
+            background: rgba(0,0,0,0.4);
+            z-index: 2050;
+        }
+
+        .contact-bar {
+            max-width: 1300px;
+            margin: 0 auto 2rem auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .contact-card {
+            background: white;
+            border-radius: 60px;
+            padding: 0.8rem 1.8rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.03);
+            transition: 0.2s;
+            text-decoration: none;
+            color: #5a3e36;
+            font-weight: 500;
+            border: 1px solid #ffe0d4;
+        }
+        .contact-card i {
+            font-size: 1.5rem;
+        }
+        .contact-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            border-color: #e9a28c;
+        }
+        .ig-card i { color: #d62976; }
+        .wa-card i { color: #25D366; }
+
+        .footer {
+            background: #fff1eb;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            font-size: 0.8rem;
+        }
+        .footer .social-links {
+            margin-top: 0.8rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.8rem;
+        }
+        .footer .social-links a {
+            color: #b28b7c;
+            font-size: 1.4rem;
+            transition: 0.2s;
+        }
+        .footer .social-links a:hover {
+            color: #e9856b;
+        }
+
+        @media (max-width: 650px) {
+            .navbar {
+                padding: 0.8rem 1rem;
+            }
+            .action-buttons {
+                flex-direction: column;
+            }
+            .contact-card {
+                padding: 0.5rem 1.2rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        body.modal-open {
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="navbar">
+        <div class="logo-area">
+            <img class="logo-img" src="Screenshot%202026-06-06%20143912.png" alt="Pastel & Bloom logo">
+            <div class="logo-text">
+                <h1>Pastel & Bloom</h1>
+                <p>deco & organizadores aesthetic</p>
+            </div>
+        </div>
+        <div class="cart-icon" id="cartIconBtn">
+            <i class="fas fa-shopping-bag"></i>
+            <span class="cart-count" id="cartCountBadge">0</span>
+        </div>
+    </div>
+</div>
+
+<div class="hero">
+    <h2>✨ Decile adiós al desorden en tu mesa de luz ✨</h2>
+    <p>🐰💍 Soportes estéticos y funcionales para tus esenciales (anillos, collares, maquillaje y más).</p>
+    <div class="location-badge"><i class="fas fa-map-marker-alt"></i> 📍 Posadas, Misiones — Envíos a todo el país</div>
+</div>
+
+<div class="contact-bar">
+    <a href="https://www.instagram.com/pastelybloom?igsh=dWZuMWgzYWozd2Z5" target="_blank" class="contact-card ig-card">
+        <i class="fab fa-instagram"></i> <span>@pastelybloom</span>
+    </a>
+    <a href="https://wa.me/5491151389953?text=Hola%20Pastel%20%26%20Bloom%2C%20me%20encant%C3%B3%20su%20web%20%F0%9F%8C%B8%20quisiera%20consultar%20por%20los%20organizadores" target="_blank" class="contact-card wa-card">
+        <i class="fab fa-whatsapp"></i> <span>Consultas por WhatsApp</span>
+    </a>
+</div>
+
+<div class="catalog">
+    <div class="section-title">🌟 Organizadores que enamoran</div>
+    <div class="products-grid" id="productsGrid"></div>
+</div>
+
+<!-- Modal -->
+<div id="productModal" class="modal">
+    <div class="modal-card">
+        <span class="close-modal">&times;</span>
+        <div class="carousel-container">
+            <div class="carousel-slide" id="carouselSlide">
+                <img id="carouselImg" src="" alt="Producto">
+            </div>
+            <button class="carousel-btn carousel-prev" id="carouselPrev"><i class="fas fa-chevron-left"></i></button>
+            <button class="carousel-btn carousel-next" id="carouselNext"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="carousel-dots" id="carouselDots"></div>
+        
+        <h2 id="modalName"></h2>
+        <p id="modalDesc" style="margin: 0.6rem 0; color:#6b4e43;"></p>
+        <div class="product-price" id="modalPrice"></div>
+        
+        <div class="color-selector" id="colorSelectorContainer">
+            <div class="color-title">🎨 Colores disponibles:</div>
+            <div class="color-options" id="colorOptionsList"></div>
+        </div>
+        
+        <div class="quantity-selector">
+            <button class="qty-btn" id="decQty">−</button>
+            <span class="qty-num" id="modalQty">1</span>
+            <button class="qty-btn" id="incQty">+</button>
+        </div>
+        <div class="action-buttons">
+            <button class="btn-primary" id="modalAddToCart">🛍️ Agregar al carrito</button>
+            <button class="btn-primary btn-secondary" id="modalBuyNow">💬 Comprar ahora</button>
+        </div>
+    </div>
+</div>
+
+<!-- Carrito lateral -->
+<div class="overlay-cart" id="cartOverlay"></div>
+<div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+        <h3>🛒 Tu carrito</h3>
+        <i class="fas fa-times" id="closeCart" style="font-size: 1.5rem; cursor:pointer;"></i>
+    </div>
+    <div class="cart-items" id="cartItemsList">
+        <p style="text-align:center; margin-top: 2rem;">Aún no hay productos 🧸</p>
+    </div>
+    <div id="cartTotalDisplay" class="cart-total">Total: $0</div>
+    <button class="btn-primary" id="checkoutCartBtn" style="width:100%;">📲 Comprar todo por WhatsApp</button>
+    <button class="btn-primary" id="clearCartBtn" style="width:100%; margin-top: 0.5rem; background:#f5e1d8; color:#b76e56;">🗑️ Vaciar carrito</button>
+</div>
+
+<footer class="footer">
+    <div class="social-links">
+        <a href="https://www.instagram.com/pastelybloom?igsh=dWZuMWgzYWozd2Z5" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/5491151389953?text=Hola%20Pastel%20%26%20Bloom%2C%20me%20encant%C3%B3%20su%20web" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <br>
+    <p>🌸 Pastel & Bloom — Organizadores con ternura y estilo. 🌸</p>
+    <p>✨ Hecho con amor para tu espacio ✨</p>
+</footer>
+
+<script>
+    // ========== CONFIGURACIÓN DE COLORES ==========
+    const colorOptions = [
+        { id: "pink", name: "Rosa pastel", colorCode: "#f5c6b5", available: false },
+        { id: "black", name: "Negro", colorCode: "#2d2d2d", available: true },
+        { id: "white", name: "Blanco", colorCode: "#f5f5f5", available: true },
+        { id: "beige", name: "Arena / Beige", colorCode: "#e8d5c4", available: false }
+    ];
+
+    // ========== PRODUCTOS ==========
+    const products = [
+        { id: 1, name: "Bandeja Organizadora de Anillos Conejo", price: 8000, images: ["conejo1.webp", "conejo2.webp"], desc: "Bandeja ideal para anillos y aros. Medidas 7x7cm. Incluye base antideslizante." },
+        { id: 2, name: "Soporte Colgante para Collares", price: 10000, images: ["collarsimple.webp"], desc: "Estructura de 9 ganchos. Ahorra espacio y luce tus joyas." },
+        { id: 3, name: "Soporte Colgante para Collares y anillos", price: 10000, images: ["collarsimplepared1.webp", "collarsimplepared2.webp", "collarsimplepared3.webp","collarsimplepared4.webp"], desc: "Estructura de 5 ganchos para tus collares y soporte para tus anillos." },
+        { id: 4, name: "Soporte de anillos Cisne", price: 6000, images: ["anilloganzo.webp"], desc: "Ideal para anillos y aros." },
+        { id: 5, name: "Soporte Colgante para Aros", price: 14000, images: ["aroshexa1.webp"], desc: "Estructura de 7 ranuras para tus aros." },
+        { id: 6, name: "Soporte Colgante para collar y Aros", price: 16000, images: ["collaryaroredondo.webp"], desc: "Estructura ideal para tu mejor combinacion." },
+        { id: 7, name: "Organizador multiuso", price: 10000, images: ["orgmulti1.webp", "orgmulti2.webp", "orgmulti3.webp","orgmulti4.webp"], desc: "Organizador ideal para tus joyas favoritas." },
+        { id: 8, name: "Organizador de maquillajes", price: 9000, images: ["orgmaqui1.webp"], desc: "Organizador de maquillajes comodo, bonito y practico." },
+        { id: 9, name: "Organizador de maquillajes en modulos", price: 12000, images: ["orgmaquicuadrado.webp"], desc: "Organizador de maquillajes en modulos ideal para tu uso" }
+    ];
+
+    // Añadir colores a cada producto (todos con la misma disponibilidad por ahora)
+    products.forEach(product => {
+        product.colors = JSON.parse(JSON.stringify(colorOptions));
+    });
+
+    let cart = [];
+
+    // Función para generar ID único por producto+color
+    function getCartItemId(productId, colorName) {
+        return `${productId}_${colorName.replace(/\s/g, '_')}`;
+    }
+
+    function saveCart() { 
+        localStorage.setItem('pastelBloomCart', JSON.stringify(cart)); 
+        updateCartUI(); 
+    }
+
+    function loadCart() { 
+        const stored = localStorage.getItem('pastelBloomCart'); 
+        if(stored) {
+            try {
+                cart = JSON.parse(stored);
+                if (!Array.isArray(cart)) cart = [];
+            } catch(e) { 
+                cart = []; 
+            }
+        } else { 
+            cart = []; 
+        }
+        updateCartUI(); 
+    }
+
+    function clearCart() {
+        if(cart.length > 0) {
+            cart = [];
+            saveCart();
+            showToast("🛒 Carrito vaciado");
+        }
+    }
+
+    function updateCartUI() {
+        const countBadge = document.getElementById('cartCountBadge');
+        const totalItems = cart.reduce((acc, item) => acc + (item.quantity || 0), 0);
+        countBadge.innerText = totalItems;
+        
+        const cartContainer = document.getElementById('cartItemsList');
+        const totalSpan = document.getElementById('cartTotalDisplay');
+        
+        if(cart.length === 0) { 
+            cartContainer.innerHTML = '<p style="text-align:center; margin-top: 2rem;">Aún no hay productos 🧸</p>'; 
+            totalSpan.innerText = `Total: $0`; 
+            return; 
+        }
+        
+        let html = '';
+        let total = 0;
+        cart.forEach((item, idx) => {
+            const subtotal = (item.price || 0) * (item.quantity || 0);
+            total += subtotal;
+            const uniqueId = getCartItemId(item.id, item.selectedColor || 'default');
+            html += `
+                <div class="cart-item" data-unique-id="${uniqueId}">
+                    <img class="cart-item-img" src="${item.image || ''}" alt="${item.name}">
+                    <div class="cart-item-details">
+                        <strong>${item.name}</strong><br>
+                        ${item.selectedColor ? `<span style="font-size:0.75rem; color:#b76e56;">🎨 Color: ${item.selectedColor}</span><br>` : ''}
+                        <span>$${(item.price || 0).toLocaleString()} x ${item.quantity || 0} = $${subtotal.toLocaleString()}</span>
+                        <div style="margin-top:8px; display:flex; gap:8px;">
+                            <button class="cart-qty-minus" data-id="${item.id}" data-color="${item.selectedColor || ''}" style="background:#f5e1d8; border:none; border-radius:30px; padding:4px 12px; cursor:pointer;">−</button>
+                            <span style="min-width:30px; text-align:center;">${item.quantity || 0}</span>
+                            <button class="cart-qty-plus" data-id="${item.id}" data-color="${item.selectedColor || ''}" style="background:#f5e1d8; border:none; border-radius:30px; padding:4px 12px; cursor:pointer;">+</button>
+                            <button class="cart-item-remove" data-id="${item.id}" data-color="${item.selectedColor || ''}" style="background:#fce4da; border:none; border-radius:30px; padding:4px 12px; cursor:pointer; color:#e9856b;"><i class="fas fa-trash-alt"></i> Eliminar</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+        cartContainer.innerHTML = html;
+        totalSpan.innerText = `Total: $${total.toLocaleString()}`;
+        
+        // Event listeners para botones del carrito
+        document.querySelectorAll('.cart-qty-minus').forEach(btn => {
+            btn.removeEventListener('click', handleCartMinus);
+            btn.addEventListener('click', handleCartMinus);
+        });
+        document.querySelectorAll('.cart-qty-plus').forEach(btn => {
+            btn.removeEventListener('click', handleCartPlus);
+            btn.addEventListener('click', handleCartPlus);
+        });
+        document.querySelectorAll('.cart-item-remove').forEach(btn => {
+            btn.removeEventListener('click', handleCartRemove);
+            btn.addEventListener('click', handleCartRemove);
+        });
+    }
+    
+    function handleCartMinus(e) {
+        const id = parseInt(e.currentTarget.dataset.id);
+        const color = e.currentTarget.dataset.color;
+        updateItemQuantity(id, color, -1);
+    }
+    
+    function handleCartPlus(e) {
+        const id = parseInt(e.currentTarget.dataset.id);
+        const color = e.currentTarget.dataset.color;
+        updateItemQuantity(id, color, 1);
+    }
+    
+    function handleCartRemove(e) {
+        const id = parseInt(e.currentTarget.dataset.id);
+        const color = e.currentTarget.dataset.color;
+        removeFromCart(id, color);
+    }
+    
+    function updateItemQuantity(productId, colorName, delta) {
+        const index = cart.findIndex(item => item.id === productId && item.selectedColor === colorName);
+        if(index !== -1) {
+            const newQty = (cart[index].quantity || 0) + delta;
+            if(newQty <= 0) {
+                cart.splice(index, 1);
+            } else {
+                cart[index].quantity = newQty;
+            }
+            saveCart();
+        }
+    }
+    
+    function removeFromCart(productId, colorName) { 
+        cart = cart.filter(item => !(item.id === productId && item.selectedColor === colorName)); 
+        saveCart(); 
+    }
+    
+    function addToCart(product, quantity, mainImage, selectedColorObj) {
+        const selectedColorName = selectedColorObj ? selectedColorObj.name : "Sin especificar";
+        const existingIndex = cart.findIndex(item => item.id === product.id && item.selectedColor === selectedColorName);
+        
+        if(existingIndex !== -1) {
+            cart[existingIndex].quantity = (cart[existingIndex].quantity || 0) + quantity;
+        } else {
+            cart.push({ 
+                id: product.id, 
+                name: product.name, 
+                price: product.price, 
+                quantity: quantity, 
+                image: mainImage,
+                selectedColor: selectedColorName
+            });
+        }
+        saveCart();
+        showToast(`✨ Agregado: ${product.name} (${selectedColorName}) ✨`);
+    }
+    
+    function showToast(msg) {
+        const notif = document.createElement('div');
+        notif.innerText = msg;
+        notif.style.position = 'fixed'; 
+        notif.style.bottom = '30px'; 
+        notif.style.left = '50%'; 
+        notif.style.transform = 'translateX(-50%)';
+        notif.style.backgroundColor = '#e9a28c'; 
+        notif.style.color = 'white'; 
+        notif.style.padding = '12px 24px'; 
+        notif.style.borderRadius = '60px';
+        notif.style.zIndex = '2200'; 
+        notif.style.fontWeight = '500'; 
+        notif.style.boxShadow = '0 6px 14px rgba(0,0,0,0.1)';
+        document.body.appendChild(notif);
+        setTimeout(() => notif.remove(), 2000);
+    }
+
+    function buildCartMessage() {
+    if(cart.length === 0) return null;
+    let message = "✨ ¡Hola! Me interesa hacer un pedido en Pastel & Bloom ✨\n\n";
+    message += "📦 *Productos solicitados:*\n";
+    cart.forEach(item => { 
+        const colorInfo = item.selectedColor ? ` (Color: ${item.selectedColor})` : '';
+        message += `🐰 ${item.name}${colorInfo} x ${item.quantity}\n`;
+    });
+    message += `\n📍 *Zona:* Posadas, Misiones (consultar envíos a otras localidades)\n`;
+    message += `\n💬 *Por favor, confirmarme disponibilidad y el precio final.*\n`;
+    message += `\n¡Muchas gracias! 🌸`;
+    return encodeURIComponent(message);
+}
+
+function buildSingleProductMessage(product, quantity, selectedColorObj) {
+    const colorText = selectedColorObj ? `\n🎨 Color: ${selectedColorObj.name}` : '';
+    const message = `🌸 Pedido en Pastel & Bloom 🌸\n\n✨ *Producto:* ${product.name}${colorText}\n📦 *Cantidad:* ${quantity}\n📍 *Zona:* Posadas, Misiones\n\n💬 Por favor, confirmarme disponibilidad y el precio final. ¡Gracias!`;
+    return encodeURIComponent(message);
+}
+    
+    function sendWhatsApp(messageEncoded) {
+        if(!messageEncoded) return false;
+        const phoneNumber = "5491151389953";
+        window.open(`https://wa.me/${phoneNumber}?text=${messageEncoded}`, '_blank');
+        return true;
+    }
+    
+    function checkoutCart() { 
+        const msg = buildCartMessage(); 
+        if(msg) {
+            sendWhatsApp(msg);
+        } else { 
+            showToast("🛒 El carrito está vacío"); 
+        }
+    }
+    
+    function buyNow(product, quantity, selectedColorObj) { 
+        const msg = buildSingleProductMessage(product, quantity, selectedColorObj); 
+        sendWhatsApp(msg); 
+    }
+
+    // Render catálogo
+    function renderProducts() {
+        const grid = document.getElementById('productsGrid');
+        grid.innerHTML = '';
+        products.forEach(prod => {
+            const card = document.createElement('div'); 
+            card.className = 'product-card';
+            const previewImg = prod.images && prod.images.length ? prod.images[0] : "https://placehold.co/600x600/FCE4DA/c27762?text=Imagen";
+            card.innerHTML = `<img class="product-img" src="${previewImg}" alt="${prod.name}" loading="lazy"><div class="product-info"><div class="product-name">${prod.name}</div><div class="product-price">$${prod.price.toLocaleString()}</div></div>`;
+            card.addEventListener('click', () => { openModal(prod.id); });
+            grid.appendChild(card);
+        });
+    }
+
+    // Modal variables
+    let currentProductImages = [];
+    let currentImageIndex = 0;
+    let currentModalProductObj = null;
+    let currentModalQty = 1;
+    let currentSelectedColor = null;
+
+    function updateCarousel() {
+        if(!currentProductImages.length) return;
+        document.getElementById('carouselImg').src = currentProductImages[currentImageIndex];
+        const dotsContainer = document.getElementById('carouselDots');
+        dotsContainer.innerHTML = '';
+        currentProductImages.forEach((_, idx) => {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if(idx === currentImageIndex) dot.classList.add('active');
+            dot.addEventListener('click', () => {
+                currentImageIndex = idx;
+                updateCarousel();
+            });
+            dotsContainer.appendChild(dot);
+        });
+    }
+
+    function renderColorOptions() {
+        const container = document.getElementById('colorOptionsList');
+        if(!container) return;
+        if(!currentModalProductObj || !currentModalProductObj.colors || currentModalProductObj.colors.length === 0) {
+            container.parentElement.style.display = 'none';
+            return;
+        }
+        container.parentElement.style.display = 'block';
+        container.innerHTML = '';
+        
+        const firstAvailable = currentModalProductObj.colors.find(c => c.available);
+        if(firstAvailable && !currentSelectedColor) {
+            currentSelectedColor = firstAvailable;
+        }
+        
+        currentModalProductObj.colors.forEach(color => {
+            const colorDiv = document.createElement('div');
+            colorDiv.className = `color-option ${currentSelectedColor && currentSelectedColor.id === color.id ? 'active' : ''} ${!color.available ? 'disabled' : ''}`;
+            colorDiv.innerHTML = `
+                <div class="color-circle" style="background-color: ${color.colorCode}; border: ${color.colorCode === '#f5f5f5' ? '1px solid #ddd' : 'none'}"></div>
+                <span class="color-name">${color.name}</span>
+            `;
+            if(color.available) {
+                colorDiv.addEventListener('click', () => {
+                    currentSelectedColor = color;
+                    renderColorOptions();
+                });
+            }
+            container.appendChild(colorDiv);
+        });
+    }
+
+    function openModal(productId) {
+        const product = products.find(p => p.id === productId);
+        if(!product) return;
+        currentModalProductObj = JSON.parse(JSON.stringify(product));
+        currentModalQty = 1;
+        currentProductImages = [...(currentModalProductObj.images || [])];
+        currentImageIndex = 0;
+        
+        const firstAvailable = currentModalProductObj.colors.find(c => c.available);
+        currentSelectedColor = firstAvailable || null;
+        
+        document.getElementById('modalName').innerText = currentModalProductObj.name;
+        document.getElementById('modalDesc').innerText = currentModalProductObj.desc;
+        document.getElementById('modalPrice').innerHTML = `$${currentModalProductObj.price.toLocaleString()}`;
+        document.getElementById('modalQty').innerText = currentModalQty;
+        
+        renderColorOptions();
+        updateCarousel();
+        document.getElementById('productModal').style.display = 'flex';
+        document.body.classList.add('modal-open');
+    }
+
+    function closeModal() { 
+        document.getElementById('productModal').style.display = 'none'; 
+        document.body.classList.remove('modal-open');
+    }
+
+    // Eventos del modal
+    document.getElementById('carouselPrev')?.addEventListener('click', () => {
+        if(!currentProductImages.length) return;
+        currentImageIndex = (currentImageIndex - 1 + currentProductImages.length) % currentProductImages.length;
+        updateCarousel();
+    });
+    document.getElementById('carouselNext')?.addEventListener('click', () => {
+        if(!currentProductImages.length) return;
+        currentImageIndex = (currentImageIndex + 1) % currentProductImages.length;
+        updateCarousel();
+    });
+    document.getElementById('decQty')?.addEventListener('click', () => { 
+        if(currentModalQty > 1) { 
+            currentModalQty--; 
+            document.getElementById('modalQty').innerText = currentModalQty; 
+        } 
+    });
+    document.getElementById('incQty')?.addEventListener('click', () => { 
+        currentModalQty++; 
+        document.getElementById('modalQty').innerText = currentModalQty; 
+    });
+    document.getElementById('modalAddToCart')?.addEventListener('click', () => { 
+        if(currentModalProductObj) { 
+            if(!currentSelectedColor) {
+                showToast("⚠️ Seleccioná un color disponible");
+                return;
+            }
+            addToCart(currentModalProductObj, currentModalQty, currentProductImages[0], currentSelectedColor); 
+            closeModal(); 
+        } 
+    });
+    document.getElementById('modalBuyNow')?.addEventListener('click', () => { 
+        if(currentModalProductObj) { 
+            if(!currentSelectedColor) {
+                showToast("⚠️ Seleccioná un color disponible");
+                return;
+            }
+            buyNow(currentModalProductObj, currentModalQty, currentSelectedColor); 
+            closeModal(); 
+        } 
+    });
+    document.querySelector('.close-modal')?.addEventListener('click', closeModal);
+    window.addEventListener('click', (e) => { 
+        if(e.target === document.getElementById('productModal')) closeModal(); 
+    });
+
+    // Carrito sidebar
+    const cartSidebar = document.getElementById('cartSidebar');
+    const cartOverlay = document.getElementById('cartOverlay');
+    
+    function openCart() { 
+        cartSidebar.classList.add('open'); 
+        cartOverlay.style.display = 'block'; 
+        document.body.style.overflow = 'hidden'; 
+    }
+    
+    function closeCart() { 
+        cartSidebar.classList.remove('open'); 
+        cartOverlay.style.display = 'none'; 
+        document.body.style.overflow = ''; 
+    }
+    
+    document.getElementById('cartIconBtn')?.addEventListener('click', openCart);
+    document.getElementById('closeCart')?.addEventListener('click', closeCart);
+    cartOverlay?.addEventListener('click', closeCart);
+    document.getElementById('checkoutCartBtn')?.addEventListener('click', () => { 
+        checkoutCart(); 
+        closeCart(); 
+    });
+    document.getElementById('clearCartBtn')?.addEventListener('click', () => {
+        clearCart();
+    });
+
+    // Inicializar
+    renderProducts(); 
+    loadCart();
+</script>
+</body>
+</html>
