@@ -674,23 +674,24 @@
 <script>
     // ========== CONFIGURACIÓN DE COLORES ==========
     const colorOptions = [
-        { id: "pink", name: "Rosa pastel", colorCode: "#f5c6b5", available: false },
+        { id: "pink", name: "Rosa pastel", colorCode: "#f5c6b5", available: true },
         { id: "black", name: "Negro", colorCode: "#2d2d2d", available: true },
         { id: "white", name: "Blanco", colorCode: "#f5f5f5", available: true },
-        { id: "beige", name: "Arena / Beige", colorCode: "#e8d5c4", available: false }
+        { id: "beige", name: "Arena / Beige", colorCode: "#e8d5c4", available: true }
     ];
 
     // ========== PRODUCTOS ==========
     const products = [
-        { id: 1, name: "Bandeja Organizadora de Anillos Conejo", price: 8000, images: ["conejo1.webp", "conejo2.webp"], desc: "Bandeja ideal para anillos y aros. Medidas 7x7cm. Incluye base antideslizante." },
-        { id: 2, name: "Soporte Colgante para Collares", price: 10000, images: ["collarsimple.webp"], desc: "Estructura de 9 ganchos. Ahorra espacio y luce tus joyas." },
+        { id: 1, name: "Bandeja Organizadora de Anillos Conejo", price: 8000, images: ["conejo2.webp","conejo1.webp", "conejorosa.png"], desc: "Bandeja ideal para anillos y aros. Medidas 7x7cm. Incluye base antideslizante." },
+        { id: 2, name: "Soporte Colgante para Collares", price: 16000, images: ["collarsimple.webp","collarsimplerosa.jpeg","collarsimpleveige.jpeg"], desc: "Estructura de 9 ganchos. Ahorra espacio y luce tus joyas." },
         { id: 3, name: "Soporte Colgante para Collares y anillos", price: 10000, images: ["collarsimplepared1.webp", "collarsimplepared2.webp", "collarsimplepared3.webp","collarsimplepared4.webp"], desc: "Estructura de 5 ganchos para tus collares y soporte para tus anillos." },
         { id: 4, name: "Soporte de anillos Cisne", price: 6000, images: ["anilloganzo.webp"], desc: "Ideal para anillos y aros." },
-        { id: 5, name: "Soporte Colgante para Aros", price: 14000, images: ["aroshexa1.webp"], desc: "Estructura de 7 ranuras para tus aros." },
-        { id: 6, name: "Soporte Colgante para collar y Aros", price: 16000, images: ["collaryaroredondo.webp"], desc: "Estructura ideal para tu mejor combinacion." },
+        { id: 5, name: "Soporte Colgante para Aros", price: 12000, images: ["aroshexa1.webp"], desc: "Estructura de 7 ranuras para tus aros." },
+        { id: 6, name: "Soporte Colgante para collar y Aros", price: 10000, images: ["collaryaroredondo.webp"], desc: "Estructura ideal para tu mejor combinacion." },
         { id: 7, name: "Organizador multiuso", price: 10000, images: ["orgmulti1.webp", "orgmulti2.webp", "orgmulti3.webp","orgmulti4.webp"], desc: "Organizador ideal para tus joyas favoritas." },
-        { id: 8, name: "Organizador de maquillajes", price: 9000, images: ["orgmaqui1.webp"], desc: "Organizador de maquillajes comodo, bonito y practico." },
-        { id: 9, name: "Organizador de maquillajes en modulos", price: 12000, images: ["orgmaquicuadrado.webp"], desc: "Organizador de maquillajes en modulos ideal para tu uso" }
+        { id: 8, name: "Organizador de maquillajes", price: 10000, images: ["maquillajeredondonegro.jpeg","maquillajeredondoblanco.jpeg","maquillajeredondoveige.jpeg","maquillajeredondorosapastel.png"], desc: "Organizador de maquillajes comodo, bonito y practico." },
+        { id: 9, name: "Organizador de maquillajes en modulos", price: 12000, images: ["maquillajehexanegro.png","maquillajehexablanco.png","maquillajehexarosa.png","maquillajehexaveige.png"], desc: "Organizador de maquillajes en modulos hexagonales ideal para tu uso" },
+        { id: 10, name: "Organizador de maquillajes circular", price: 12000, images: ["maquillajex3veige.jpeg","maquillajex3negro.jpeg","maquillajex3rosa.jpeg","maquillajex3blanco.jpeg",], desc: "Organizador de maquillajes en modulos hexagonales ideal para tu uso" },
     ];
 
     // Añadir colores a cada producto (todos con la misma disponibilidad por ahora)
